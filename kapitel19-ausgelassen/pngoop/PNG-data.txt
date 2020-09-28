@@ -1,0 +1,334 @@
+## Annotated Image Header
+## http://www.libpng.org/pub/png/spec/1.2/PNG-Chunks.html
+## http://www.libpng.org/pub/png/spec/1.2/PNG-Compression.html
+## COOL, somebody did that: : https://parsiya.net/blog/2018-02-25-extracting-png-chunks-with-go/#idat-chunks
+# Signature
+SIG: 89
+PNG: 50 4e 47 (PNG)
+BRK: 0d 0a 1a 0a (CR,LF,EOF,LF)
+
+# Image Header
+LEN: 00 00 00 0d (13)
+TYP: 49 48 44 52 (IHDR)
+DAT:
+    - 00 00 00 20 (WIDTH, 32)
+    - 00 00 00 20 (HEIGHT, 32)
+    - 08 (BIT DEPTH)
+    - 06 (COLOR TYPE) [Pixels are RGB Triple, Bit Depth must be 8 or 16]
+    - 00 (COMPRESSION METHOD) [0, atm]
+    - 00 (FILTER METHOD) [0, atm]
+    - 00 (INTERLACE METHOD) [No Interlace]
+CRC: 73 7a 7af4 (SUM)
+
+# Background Color
+LEN: 00 00 00 06 (6)
+TYP: 62 4b 47 44 (bKGD)
+DAT:
+    - 00 ff (RED)
+    - 00 ff (GREEN)
+    - 00 ff (BLUE)
+CRC: a0 bd a7 93 (SUM)
+
+# Physical Pixel Dimensions
+LEN: 00 00 00 09 (9)
+TYP: 70 48 59 73 (pHYs)
+DAT:
+    - 00 00 0b 13 (2835) [X Pixels per unit, i.e. 72.009 dpi]
+    - 00 00 0b 13 (2835) [Y Pixels per unit, i.e. 72.009 dpi]
+    - 01 (Unit) [0=?, 1=meter]
+CRC: 00 9a 9c 18 (SUM)
+
+#  Time of last Image Modification
+LEN: 00 00 00 07 (7)
+TYP: 74 49 4d 45 (tIME)
+DAT:
+    - 07 e4 (YEAR)
+    - 01 (MONTH)
+    - 11 (DAY)
+    - 0c (HOUR)
+    - 29 (MINUTE)
+    - 0c (SECOND)
+CRC: d0 2e c0 da (SUM)
+
+# Image Data, Multiple Possible
+LEN: 00 00 10 2b (4139)
+TYP: 49 44 41 54 (IDAT)
+DAT: (ZLIB FORMAT)
+
+# Filter Type Byte Per Scanline
+
+    - 58 [88, ZLIB DEFLATE STUFF]
+    - 09 [9, ZLIB DEFLATE STUFF]
+01 20
+10 df ef 00ff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ff00 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 00ff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ff00 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 00ff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ff00
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+00ff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ff00 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 00ff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ff00 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 00ff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ff00 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 00ff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ff00 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 00ff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ff00 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 00ff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ff00 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 00ff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ff00 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 00ff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ff00
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+00ff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ff00 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 00ff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ffff ffff ff00 0000 ffff ffff ff00
+0000 ff00 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 0000 00ff ffff ffff 0000 00ff
+ffff ffff 00ff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ffff ffff ff00 0000 ffff ffff
+ff00 0000 ff00 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 0000 00ff ffff ffff 0000
+00ff ffff ffff 00ff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ffff ffff ff00 0000 ffff
+ffff ff00 0000 ff00 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 0000 00ff ffff ffff
+0000 00ff ffff ffff 00ff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ffff ffff ff00 0000
+ffff ffff ff00 0000 ff00 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff 0000 00ff ffff
+ffff 0000 00ff ffff ffff
+CHK: 27 df f6 88 (ADLER32, ZLIB CHECK)
+CRC: e9 75 90 8a (SUM)
+
+LEN: 00 00 00 00 (0)
+TYP: 49 45 4e 44 (IEND)
+CRC: ae 42 60 82 (SUM)
+
+
+### CRC: TYP + DAT
+>>> import zlib
+>>> data = bytes([0x62, 0x4b, 0x47, 0x44, 0x00, 0xff, 0x00, 0xff, 0x00, 0xff])
+>>> format(zlib.crc32(data), 'x')
+'a0bda793'

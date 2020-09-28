@@ -1,0 +1,22 @@
+{% extends 'web/layout.html' %}
+{% block main %}
+<h1>{{ person.first_name }} {{ person.last_name }}</h1>
+
+<a class="button blue" href="{% url 'update' person.id %}">Update</a>
+<a class="button gray" href="{% url 'delete' person.id %}">Delete</a>
+
+<br>
+{% if person.birthday %}
+    <h2>Geburtstag</h2>
+    {{ person.birthday }} (Age {{ person.age }})
+{% endif %}
+
+<h2>Email</h2>
+<a class="button blue" href="{% url 'create-email' person.id %}">Add Email</a>
+<ul>
+    {% for email in person.emails.all %}
+        <li>{{ email.email_address }} ({{ email.get_category_display }}) <a class="button small gray" href="{% url 'delete-email' person.id email.id %}">x</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

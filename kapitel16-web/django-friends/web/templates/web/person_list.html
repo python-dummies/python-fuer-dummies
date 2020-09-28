@@ -1,0 +1,67 @@
+{% extends 'web/layout.html' %}
+{% block main %}
+<a class="button" href="{% url 'csv' %}">Export as CSV</a>
+<br>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                <a href="?order_by=last_name">
+                    Nachname
+                </a>
+            </th>
+            <th>
+                <a href="?order_by=first_name">
+                    Vorname
+                </a>
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                <a href="?order_by=birthday">
+                Geburtstag
+                </a>
+            </th>
+            <th>
+                Alter
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for person in people %}
+        <tr>
+            <td>
+                {{ forloop.counter }}.
+            </td>
+            <td>
+                <a href="{% url 'person' person.id %}">
+                    {{ person.last_name }}
+                </a>
+            </td>
+            <td>{{ person.first_name }}</td>
+            <td>
+                {% if person.emails.count %}
+                    {{ person.emails.first }}
+                {% endif %}
+            </td>
+            <td>
+                {% if person.birthday %}
+                    {{ person.birthday |date:"d.m.Y" }}
+                {% endif %}
+                {% if person.is_born_today %}⭐{% endif %}
+            </td>
+            <td>
+                {% if person.birthday %}
+                    {{ person.age }}
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'web/layout.html' %}
+{% block main %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="blue" type="submit" value="Save">
+</form>
+{% endblock %}

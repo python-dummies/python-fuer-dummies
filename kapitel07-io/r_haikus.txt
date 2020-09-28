@@ -1,0 +1,13 @@
+----------------------------------
+| Sure, that file exists         |
+| But belongs to someone else    |
+| Permission denied              |
+| ~~~                            |
+| Underfull H-Box                |
+| With badness fifteen thousand  |
+| Surely will look great         |
+| ~~~                            |
+| How strong is your wish        |
+| That the crash took it all     |
+| No backup remains?             |
+----------------------------------

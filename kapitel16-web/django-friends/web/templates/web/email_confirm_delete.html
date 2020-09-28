@@ -1,0 +1,8 @@
+{% extends 'web/layout.html' %}
+{% block main %}
+<form method="post">{% csrf_token %}
+    <p>Are you sure you want to delete {{ email }} for {{ email.person }} ?</p>
+    <input class="red" type="submit" value="Confirm">
+    <a class="button" href="{% url 'person' email.person.id %}">Cancel</a>
+</form>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'web/layout.html' %}
+{% block main %}
+<h1>Add new Email Address for {{ person }}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="blue" type="submit" value="Save">
+</form>
+{% endblock %}

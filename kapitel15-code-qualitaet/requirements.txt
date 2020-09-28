@@ -1,0 +1,12 @@
+pycodestyle
+black
+pyflakes
+autopep8
+pydocstyle
+bandit
+flake8
+flake8-docstrings
+flake8-bandit
+flake8-black
+pep8-naming
+pylint

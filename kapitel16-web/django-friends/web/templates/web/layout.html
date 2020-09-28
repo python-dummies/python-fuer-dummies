@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css.css' %}">
+</head>
+<body>
+    <nav>
+        <a class="gray" href="{% url 'index' %}">Index</a>
+        <a class="gray" href="{% url 'create' %}">+ Add a new Friend</a>
+    </nav>
+    <section>
+    {% block main %}{% endblock %}
+    </section>
+</body>
+</html>

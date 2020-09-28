@@ -1,0 +1,1 @@
+from itertools import compress;print([''.join(compress(('Fizz', 'Buzz'),(i%3==0,i%5==0)))or i for i in range(1,60)])
