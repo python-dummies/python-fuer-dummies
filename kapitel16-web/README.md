@@ -49,3 +49,9 @@ angegeben haben.
 Mehr zu Django erfahren Sie offiziellen Django Tutorial:
 
 https://docs.djangoproject.com/en/3.0/intro/tutorial01/
+
+
+Warnung
+-------
+
+Bitte beachten Sie: Diese Django-App sollten Sie nicht leichtfertig im Internet bereitstellen, ohne zu wissen, was Sie tun. Passen Sie mindestens die Einstellungen `SECRET_KEY` und `DEBUG` in der Datei ```django-friends/friends/settings.py``` an. 
