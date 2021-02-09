@@ -8,7 +8,7 @@ Threading geht in Python nicht richtig, denn da steht der
 "Global Interpreter Lock" im Weg.
 
 Sie können jedoch asynchrone IO verwenden. Dabei wird ein Thread gestartet.
-Sobald dieser Thread Daten aus einer langsame Ressource, etwa dem Netzwerk,
+Sobald dieser Thread Daten aus einer langsamen Ressource, etwa dem Netzwerk,
 lädt, macht der Thread mit anderen Verarbeitungsaufgaben weiter.
 
 Ob das Ihr Programm beschleunigt, hängt davon ab, ob Ihr Programm ständig mit
@@ -16,8 +16,8 @@ IO beschäftigt ist. Wenn Ihr Programm hauptsächlich rechnen muss, ist
 Multiprocessing besser geeignet (das Verteilen von Prozessen auf mehrere
 CPU-Kerne).
 
-Zusätzlich demonstriert diese Programm einen eigenen klassenbasierten Iterator.
-Im Hintergrund werden mehrere Daten parallel abgefragt, aber der aufrufende
+Zusätzlich demonstriert dieses Programm einen eigenen klassenbasierten Iterator.
+Im Hintergrund werden mehrere Daten abgefragt, aber der aufrufende
 Code bekommt davon nichts mit.
 """
 import json
